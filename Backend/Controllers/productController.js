@@ -1,6 +1,6 @@
 import Product from "../Modals/product.js";
 const addProduct = async (req, res) => {
-  const { title, description, price, category, stock, imageurl, createdAt } =
+  const { title, description, price, category, stock, imageurl, createdAt ,qty} =
     req.body;
   try {
     const product = await Product.create({
@@ -11,6 +11,7 @@ const addProduct = async (req, res) => {
       stock,
       imageurl,
       createdAt,
+      qty
     });
     res.json({ message: "product created successfully", product });
   } catch (error) {
