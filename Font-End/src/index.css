@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+
+body{
+     font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+    @theme {
+      --breakpoint-sm: 300px;
+      --breakpoint-md: 768px;
+      --breakpoint-lg: 976px;
+      --breakpoint-xl: 1500px;
+    }
+
+
+
+
+.carousel .slide .legend {
+  visibility: hidden;
+}
+
+
+
+.carousel .control-dots .dot {
+  background-color: #000 !important; /* তোমার পছন্দমতো কালার */
+  box-shadow: none !important; /* ডিফল্ট shadow remove */
+  opacity: 1 !important; /* যেন সম্পূর্ণ কালার দেখা যায় */
+}
+
+.carousel .control-dots .dot.selected {
+  background-color: #f59e0b !important; /* উদাহরণস্বরূপ Tailwind amber-500 কালার */
+  transform: scale(1.2); /* একটু বড় করে দেখাতে */
+  width: 25px;
+  border-radius: 0%;
+  border-radius: 4px;
+}
+
+.carousel.carousel-slider .control-arrow {
+  visibility: hidden;
+  position: absolute; 
+}
+::-webkit-scrollbar{
+  width: 5px !important ;
+  height: 5px !important ;
+}
+
+.dailyDealCarousel .control-dots .dot {
+  visibility: hidden;
+}
+
+.dailyDealCarousel .carousel .control-arrow {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e9e9e9 !important;
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50%;
+  z-index: 99 !important;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* ✅ border ঠিকভাবে render হবে */
+  overflow: visible !important; /* ✅ pseudo-element যেন border ঢেকে না রাখে */
+}
+
+/* 🔹 বাম দিকের arrow */
+.dailyDealCarousel .carousel .control-prev {
+  left: 40px !important;
+  top:100px;
+  background-color: #f59e0b !important;
+  color: white !important;
+  border: 2px solid #e9e9e9 !important; /* ✅ আলাদা করে যুক্ত করো */
+}
+
+/* 🔹 ডান দিকের arrow */
+.dailyDealCarousel .carousel .control-next {
+  right: 30px !important;
+  background-color: #f59e0b !important;
+  color: white !important;
+  border: 2px solid #e9e9e9 !important; /* ✅ এটাতেও যুক্ত করো */
+}
+
+/* 🔹 Hover effect */
+.dailyDealCarousel .carousel .control-arrow:hover {
+  background-color: rgb(70, 66, 66) !important; /* ← 0.3 মানে 30% opacity */
+  border-color: #ef4444 !important;
+}
+/* 🔹 Arrow shape color */
+.dailyDealCarousel .carousel .control-prev::before {
+  border-right: 8px solid white !important;
+  z-index: 1 !important; /* ✅ যেন border-এর নিচে না ঢেকে যায় */
+}
+
+.dailyDealCarousel .carousel .control-next::before {
+  border-left: 8px solid white !important;
+  z-index: 1 !important;
+}
