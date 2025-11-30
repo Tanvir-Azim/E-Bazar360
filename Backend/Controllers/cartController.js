@@ -55,3 +55,26 @@ export const cleareCart = async (req, res) => {
   await cart.save();
   res.json({ message: "Cart items cleared", cart });
 };
+
+export const decriseProductQty= async (req, res) => {
+  const { productId, title, price, imageurl, qty } = req.body;
+  const userId = "6924b3cef888abdbe304980b";
+
+  let cart = await Cart.findOne({ userId: userId });
+
+  if (!cart) {
+    cart = new Cart({ userId, item: [] });
+  }
+
+  const findIndex = cart.item.findIndex(
+    (item) => item.productId.toString() === productId
+  );
+  if (findIndex > -1) {
+    cart.item[findIndex].qty += qty;
+    cart.item[findIndex].price += price * qty;
+  } else {
+    cart.item.push({ productId, title, price, imageurl, qty });
+  }
+  await cart.save();
+  res.json({ message: "Item Added To Cart", cart });
+};
